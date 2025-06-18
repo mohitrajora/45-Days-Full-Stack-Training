@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #F8153E;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .data {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .addressdiv {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .form {
+            flex: 1;
+            min-width: 300px;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .address,
+        .call,
+        .email {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .addressdiv div p:first-child {
+            font-size: 24px;
+        }
+
+        .addressdiv h3 {
+            margin-bottom: 4px;
+            color: #F8153E;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background: #F8153E;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #c81230;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .data {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>Contact</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet temporibus ab cumque numquam quaerat earum
+                ipsa animi blanditiis dolorem maxime esse odio et, repellendus necessitatibus modi corporis iure facilis
+                dignissimos!</p>
+        </div>
+        <div class="data">
+            <div class="addressdiv">
+                <div class="address">
+                    <p>📍</p>
+                    <div>
+                        <h3>Address</h3>
+                        <p>Agra Road, Jaipur</p>
+                    </div>
+                </div>
+                <div class="call">
+                    <p>📞</p>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+91 9876543210</p>
+                    </div>
+                </div>
+                <div class="email">
+                    <p>📧</p>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>abc@gmail.com</p>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.294623572121!2d75.96873431504395!3d26.862378983149245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x675325c0c46956fc!2sAnand+International+College+of+Engineering!5e0!3m2!1sen!2sin!4v1515652758367"
+                        height="300" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="form">
+                <input type="text" name="name" placeholder="Your name">
+                <input type="email" name="email" placeholder="Your Email">
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
