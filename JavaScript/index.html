@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="apifun(event)">
+        <input type="text" name="text" id="input" placeholder="Write Prompt">
+        <input type="submit" value="Submit">
+    </form>
+    <img src="" alt="">
+
+    <script>
+        async function apifun(event) {
+            event.preventDefault();
+            let pinCode = document.getElementById("input").value;
+            let apiUrl = await fetch(`https://f72b-115-249-194-204.ngrok-free.app/generate-image`,{
+                method:"POST",
+                body:JSON.stringify({prompt:pinCode}),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            });
+            let jsonResponse = await apiUrl.json();
+            console.log(jsonResponse["image"]["data"][0]["b64_json"]);
+            document.getElementsByTagName("img")[0].src = `data:image/png;base64,${jsonResponse["image"]?.["data"][0]?.["b64_json"]}`
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+</head>
+
+<body>
+  <p></p> <!-- 0: ID -->
+  <p></p> <!-- 1: Title -->
+  <img src="" alt="" width="200px"> <!-- Image -->
+  <p></p> <!-- 2: Description -->
+  <p></p> <!-- 3: Category -->
+  <p></p> <!-- 4: Price -->
+  <p></p> <!-- 5: Discount -->
+  <p></p> <!-- 6: Rating -->
+  <p></p> <!-- 7: Stock -->
+  <p></p> <!-- 8: Tags -->
+  <p></p> <!-- 9: Brand -->
+  <p></p> <!-- 10: SKU -->
+  <p></p> <!-- 11: Weight -->
+  <p></p> <!-- 12: Dimensions (optional, not used in code) -->
+  <p></p> <!-- 13: Warranty -->
+  <p></p> <!-- 14: Shipping -->
+  <p></p> <!-- 15: Availability -->
+  <p></p> <!-- 16: Return Policy -->
+  <p></p> <!-- 17: Minimum Order -->
+  <p></p> <!-- 18: Created At -->
+  <p></p> <!-- 19: Updated At -->
+  <p></p> <!-- 20: Barcode -->
+  <p></p> <!-- 21: Review 1 -->
+  <p></p> <!-- 22: Review 2 -->
+
+  <script>
+    let obj = {
+      id: 1,
+      title: "Essence Mascara Lash Princess",
+      description: "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+      category: "beauty",
+      price: 9.99,
+      discountPercentage: 10.48,
+      rating: 2.56,
+      stock: 99,
+      tags: ["beauty", "mascara"],
+      brand: "Essence",
+      sku: "BEA-ESS-ESS-001",
+      weight: 4,
+      dimensions: { width: 15.14, height: 13.08, depth: 22.99 },
+      warrantyInformation: "1 week warranty",
+      shippingInformation: "Ships in 3-5 business days",
+      availabilityStatus: "In Stock",
+      reviews: [
+        {
+          rating: 3,
+          comment: "Would not recommend!",
+          reviewerName: "Eleanor Collins"
+        },
+        {
+          rating: 4,
+          comment: "Very satisfied!",
+          reviewerName: "Lucas Gordon"
+        },
+        {
+          rating: 5,
+          comment: "Highly impressed!",
+          reviewerName: "Eleanor Collins"
+        }
+      ],
+      returnPolicy: "No return policy",
+      minimumOrderQuantity: 48,
+      meta: {
+        createdAt: "2025-04-30T09:41:02.053Z",
+        updatedAt: "2025-04-30T09:41:02.053Z",
+        barcode: "5784719087687",
+        qrCode: "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      images: ["https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"],
+      thumbnail: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+    };
+
+    document.getElementsByTagName("p")[0].innerText = obj["id"];
+    document.getElementsByTagName("img")[0].src = obj["images"][0];
+    document.getElementsByTagName("p")[1].innerText = obj["title"];
+    document.getElementsByTagName("p")[2].innerText = obj["description"];
+    document.getElementsByTagName("p")[3].innerText = obj["category"];
+    document.getElementsByTagName("p")[4].innerText = obj["price"];
+    document.getElementsByTagName("p")[5].innerText = obj["discountPercentage"];
+    document.getElementsByTagName("p")[6].innerText = obj["rating"];
+    document.getElementsByTagName("p")[7].innerText = obj["stock"];
+    document.getElementsByTagName("p")[8].innerText = obj["tags"].join(", ");
+    document.getElementsByTagName("p")[9].innerText = obj["brand"];
+    document.getElementsByTagName("p")[10].innerText = obj["sku"];
+    document.getElementsByTagName("p")[11].innerText = obj["weight"];
+    document.getElementsByTagName("p")[13].innerText = obj["warrantyInformation"];
+    document.getElementsByTagName("p")[14].innerText = obj["shippingInformation"];
+    document.getElementsByTagName("p")[15].innerText = obj["availabilityStatus"];
+    document.getElementsByTagName("p")[16].innerText = obj["returnPolicy"];
+    document.getElementsByTagName("p")[17].innerText = obj["minimumOrderQuantity"];
+    document.getElementsByTagName("p")[18].innerText = obj["meta"].createdAt;
+    document.getElementsByTagName("p")[19].innerText = obj["meta"].updatedAt;
+    document.getElementsByTagName("p")[20].innerText = obj["meta"].barcode;
+    document.getElementsByTagName("p")[21].innerText = `Review 1: ${obj["reviews"][0].comment}`;
+    document.getElementsByTagName("p")[22].innerText = `Review 2: ${obj["reviews"][1].comment}`;
+  </script>
+</body>
+
+</html>
