@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send OTP</title>
+</head>
+
+<body>
+    <form onsubmit="apifun(event)">
+        <div>
+            <label for="input">Mobile Number:</label>
+            <input type="number" id="input" placeholder="Enter mobile number" required>
+            <input type="submit" value="Send OTP"><br>
+        </div>
+    </form>
+
+    <p style="color: green;"></p>
+
+    <script>
+        async function apifun(event) {
+            event.preventDefault();
+            const phone = document.getElementById("input").value;
+
+            const response = await fetch('https://prod.api.cosmofeed.com/api/user/send-otp', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    phone: phone,
+                    countryCode: "+91"
+                })
+            });
+
+            const jsonResponse = await response.json();
+            console.log(jsonResponse);
+
+            document.querySelector("p").innerText =
+                jsonResponse?.message || jsonResponse?.Error || "Unknown error";
+        }
+    </script>
+</body>
+
+</html>
