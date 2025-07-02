@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Generator</title>
+</head>
+
+<body>
+    <form onsubmit="apifun(event)">
+        <input type="text" id="input" placeholder="Write Prompt" />
+        <input type="submit" value="Submit" />
+    </form>
+
+    <img id="image" src="" alt="Generated Image" width="300" />
+
+    <script>
+        async function apifun(event) {
+            event.preventDefault();
+
+            const pinCode = document.getElementById("input").value;
+
+            const response = await fetch(`http://localhost:3000/?prompt=${encodeURIComponent(pinCode)}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = await response.json();
+            document.getElementById("image").src = data.imageUrl;
+        }
+    </script>
+</body>
+
+</html> -->
+
