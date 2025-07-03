@@ -17,7 +17,13 @@
 
 import express from 'express';
 import router from './routes/user.route.js';
+import 'dotenv/config'
+import bodyParser from 'body-parser';
+import './db/connection.js'
+
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
+
+app.use(bodyParser.json())
 app.use("/user", router)
-app.listen(port);
+app.listen(port,()=>console.log(port));
