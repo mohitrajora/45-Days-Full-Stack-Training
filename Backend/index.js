@@ -26,4 +26,4 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json())
 app.use("/user", router)
-app.listen(port,()=>console.log(port));
+app.listen(port, () => console.log(port));
