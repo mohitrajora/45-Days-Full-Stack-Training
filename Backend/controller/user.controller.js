@@ -1,3 +1,4 @@
+import { jwtGenerator } from "../middleware/jwt.middleware.js";
 import { User } from "../models/user.model.js";
 import bcrypt from 'bcrypt';
 
@@ -29,6 +30,7 @@ const register = async (req, res) => {
 const userLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
+        // check mail
         const userData = await User.findOne({ email });
         console.log(userData);
 
@@ -39,12 +41,19 @@ const userLogin = async (req, res) => {
                 status: false
             })
         }
-
+        // password check
         const matchPassword = await bcrypt.compare(password, userData.password);
         console.log(matchPassword);
+        if (!matchPassword) {
+            res.status(400).json({ data: null, message: "Password is incorrect", status: false });
+        }
+
+        // token gen.
+        req.userData = JSON.stringify(userData);
+        let jwtToken = await jwtGenerator(req, res);
 
         res.status(200).json({
-            data: userData,
+            data: { userData, jwtToken },
             message: "User login successfully!",
             status: true
         })
@@ -52,8 +61,7 @@ const userLogin = async (req, res) => {
     catch (err) {
         res.status(500).json({ data: null, message: err.message, status: false });
     }
-}
-
+};
 
 const getAllUser = async (req, res) => {
     try {
@@ -72,7 +80,7 @@ const getAllUser = async (req, res) => {
 
 const userDelete = async (req, res) => {
     try {
-        const { id } = req.query;
+        const id = req.user._id;
         console.log(id);
         const userData = await User.findById({ _id: Object(id) });
         console.log(userData);
